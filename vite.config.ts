@@ -4,7 +4,7 @@ import ssr from 'vike/plugin'
 import { UserConfig } from 'vite'
 
 export default {
-  legacy: { buildSsrCjsExternalHeuristics: true },
+  // legacy: { buildSsrCjsExternalHeuristics: true },
   // ssr: { external: ['@nbit/vant'] },
   plugins: [
     ssr({

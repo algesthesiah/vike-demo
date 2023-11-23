@@ -2,7 +2,7 @@
 import React from 'react'
 import { escapeInject } from 'vike/server'
 import { PageShell } from './PageShell'
-import { renderToStaticNodeStream } from 'react-dom/server'
+import { renderToStaticNodeStream, renderToString } from 'react-dom/server'
 import { getPageTitle } from './getPageTitle'
 import type { PageContextServer } from './types'
 
@@ -14,7 +14,7 @@ const passToClient = ['pageProps', 'documentProps', 'someAsyncProps']
 async function render(pageContext: PageContextServer) {
   const { Page, pageProps } = pageContext
 
-  const stream = await renderToStaticNodeStream(
+  const stream = await renderToString(
     <PageShell pageContext={pageContext}>
       <Page {...pageProps} />
     </PageShell>,
